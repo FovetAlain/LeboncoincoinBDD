@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS LeBonCoinCoin;
+CREATE DATABASE LeBonCoinCoin;
+
+USE LeBonCoinCoin;
+
 DROP TABLE IF EXISTS locataires; 
 DROP TABLE IF EXISTS proprietaires;
 DROP TABLE IF EXISTS annonces;
@@ -6,23 +11,31 @@ DROP TABLE IF EXISTS revenus;
 DROP TABLE IF EXISTS noteProprietaire;
 DROP TABLE IF EXISTS noteLocataire;
 
+create table foyer
+(
+IdFoyer INTEGER(5) NOT NULL AUTO_INCREMENT,
+constraint pk_foyer primary key(IdFoyer)
+);
+
 create table locataires
 (
 IdLocataire INTEGER(11) NOT NULL AUTO_INCREMENT ,
-PseudoLocataire VARCHAR(11) NOT NULL UNIQUE,
-NomLocataire VARCHAR(11),
-PrenomLocataire VARCHAR(11),
-MailLocataire VARCHAR(11),
-constraint pk_locataires primary key(IdLocataire)
+PseudoLocataire VARCHAR(50) NOT NULL UNIQUE,
+NomLocataire VARCHAR(50),
+PrenomLocataire VARCHAR(50),
+MailLocataire VARCHAR(50),
+IdFoyer INTEGER(5),
+constraint pk_locataires primary key(IdLocataire),
+FOREIGN KEY (IdFoyer) REFERENCES foyer(IdFoyer)
 );
 
 create table proprietaires
 (
 IdProprietaire INTEGER(11) NOT NULL AUTO_INCREMENT,
-PseudoProprietaire VARCHAR(11) NOT NULL UNIQUE,
-NomProprietaire VARCHAR(11),
-PrenomProprietaire VARCHAR(11),
-MailProprietaire VARCHAR(11),
+PseudoProprietaire VARCHAR(50) NOT NULL UNIQUE,
+NomProprietaire VARCHAR(50),
+PrenomProprietaire VARCHAR(50),
+MailProprietaire VARCHAR(50),
 constraint pk_proprietaires primary key(IdProprietaire)
 );
 
@@ -30,22 +43,15 @@ create table annonces
 (
 IdAnnonce INTEGER(11) NOT NULL AUTO_INCREMENT,
 IdProprietaire INTEGER(11),
+TitreAnonce TEXT,
 TexteAnnonce TEXT,
 lienImage TEXT,
-AdresseRue VARCHAR(11),
-AdresseNumero VARCHAR(2),
-AdresseVille VARCHAR(7),
+AdresseRue VARCHAR(50),
+AdresseNumero VARCHAR(5),
+AdresseVille VARCHAR(50),
 AdresseCP INTEGER(5),
 constraint pk_annonces primary key(IdAnnonce),
 FOREIGN KEY (IdProprietaire) REFERENCES proprietaires(IdProprietaire)
-);
-
-create table foyer
-(
-IdFoyer INTEGER(5) NOT NULL AUTO_INCREMENT,
-IdLocataire INTEGER(11),
-constraint pk_foyer primary key(IdFoyer),
-FOREIGN KEY (IdLocataire) REFERENCES locataires(IdLocataire)
 );
 
 create table revenus 
