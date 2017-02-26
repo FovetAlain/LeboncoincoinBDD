@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS cp_autocomplete;
 
 CREATE TABLE cp_autocomplete (
-  CODEPAYS char(2) NOT NULL,
-  CP varchar(10) NOT NULL,
-  VILLE varchar(180) NOT NULL,
-  CONSTRAINT pk_autocomplete PRIMARY KEY (CP, VILLE)
+  codePays char(2) NOT NULL,
+  codePostal varchar(10) NOT NULL,
+  ville varchar(180) NOT NULL,
+  CONSTRAINT pk_autocomplete PRIMARY KEY (codePostal, ville)
 );
 
 
-INSERT INTO cp_autocomplete (CODEPAYS, CP, VILLE) VALUES
+INSERT INTO cp_autocomplete (codePays, codePostal, ville) VALUES
 ('FR', '01000', 'Bourg en Bresse'),
 ('FR', '01000', 'Saint Denis lès Bourg'),
 ('FR', '01001', 'Bourg en Bresse'),
