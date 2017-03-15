@@ -22,10 +22,10 @@ constraint pk_foyer primary key(idFoyer)
 create table personnes
 (
 idPersonne INTEGER(11) NOT NULL AUTO_INCREMENT,
-nom VARCHAR(50),
-prenom VARCHAR(50),
-mail VARCHAR(50),
-motDePasse VARCHAR(50),
+nom VARCHAR(50) NOT NULL,
+prenom VARCHAR(50) NOT NULL,
+mail VARCHAR(50) NOT NULL,
+motDePasse TEXT NOT NULL,
 constraint pk_personnes primary key(idPersonne)
 );
 
