@@ -3,6 +3,7 @@ CREATE DATABASE LeBonCoinCoin;
 
 USE LeBonCoinCoin;
 
+
 DROP TABLE IF EXISTS locataires; 
 DROP TABLE IF EXISTS proprietaires;
 DROP TABLE IF EXISTS annonces;
@@ -10,79 +11,88 @@ DROP TABLE IF EXISTS foyer;
 DROP TABLE IF EXISTS revenus;
 DROP TABLE IF EXISTS noteProprietaire;
 DROP TABLE IF EXISTS noteLocataire;
+DROP TABLE IF EXISTS personnes;
 
 create table foyer
 (
-IdFoyer INTEGER(5) NOT NULL AUTO_INCREMENT,
-constraint pk_foyer primary key(IdFoyer)
+idFoyer INTEGER(5) NOT NULL AUTO_INCREMENT,
+constraint pk_foyer primary key(idFoyer)
+);
+
+create table personnes
+(
+idPersonne INTEGER(11) NOT NULL AUTO_INCREMENT,
+nom VARCHAR(50),
+prenom VARCHAR(50),
+mail VARCHAR(50),
+motDePasse VARCHAR(50),
+constraint pk_personnes primary key(idPersonne)
 );
 
 create table locataires
 (
-IdLocataire INTEGER(11) NOT NULL AUTO_INCREMENT ,
-PseudoLocataire VARCHAR(50) NOT NULL UNIQUE,
-NomLocataire VARCHAR(50),
-PrenomLocataire VARCHAR(50),
-MailLocataire VARCHAR(50),
-IdFoyer INTEGER(5),
-constraint pk_locataires primary key(IdLocataire),
-FOREIGN KEY (IdFoyer) REFERENCES foyer(IdFoyer)
+idLocataire INTEGER(11) NOT NULL AUTO_INCREMENT,
+pseudoLocataire VARCHAR(50) UNIQUE,
+fk_idFoyer INTEGER(5),
+fk_idPersonne INTEGER(11) NOT NULL,
+constraint pk_locataires primary key(idLocataire),
+FOREIGN KEY (fk_idFoyer) REFERENCES foyer(idFoyer),
+FOREIGN KEY (fk_idPersonne) REFERENCES personnes(idPersonne)
 );
 
 create table proprietaires
 (
-IdProprietaire INTEGER(11) NOT NULL AUTO_INCREMENT,
-PseudoProprietaire VARCHAR(50) NOT NULL UNIQUE,
-NomProprietaire VARCHAR(50),
-PrenomProprietaire VARCHAR(50),
-MailProprietaire VARCHAR(50),
-constraint pk_proprietaires primary key(IdProprietaire)
+idProprietaire INTEGER(11) NOT NULL AUTO_INCREMENT,
+pseudoProprietaire VARCHAR(50) UNIQUE,
+fk_idPersonne INTEGER(11) NOT NULL,
+constraint pk_proprietaires primary key(idProprietaire),
+FOREIGN KEY (fk_idPersonne) REFERENCES personnes(idPersonne)
 );
 
 create table annonces
 (
-IdAnnonce INTEGER(11) NOT NULL AUTO_INCREMENT,
-IdProprietaire INTEGER(11),
-TitreAnonce TEXT,
-TexteAnnonce TEXT,
+idAnnonce INTEGER(11) NOT NULL AUTO_INCREMENT,
+fk_idProprietaire INTEGER(11),
+titreAnonce TEXT,
+texteAnnonce TEXT,
 lienImage TEXT,
-AdresseRue VARCHAR(50),
-AdresseNumero VARCHAR(5),
-AdresseVille VARCHAR(50),
-AdresseCP INTEGER(5),
-constraint pk_annonces primary key(IdAnnonce),
-FOREIGN KEY (IdProprietaire) REFERENCES proprietaires(IdProprietaire)
+rue VARCHAR(50),
+numero VARCHAR(5),
+ville VARCHAR(50),
+cp INTEGER(5),
+constraint pk_annonces primary key(idAnnonce),
+FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
 
 create table revenus 
 (
 idRevenu INTEGER(11) NOT NULL AUTO_INCREMENT,
-IdLocataire INTEGER(11),	
-Revenus INTEGER(11),
-constraint pk_revenus primary key(IdRevenu),
-FOREIGN KEY (IdLocataire) REFERENCES locataires(IdLocataire)
+fk_idLocataire INTEGER(11),	
+revenus INTEGER(11),
+constraint pk_revenus primary key(idRevenu),
+FOREIGN KEY (fk_idLocataire) REFERENCES locataires(idLocataire)
 );
 
 create table noteLocataire
 (
-IdNoteLocataire INTEGER(11) NOT NULL AUTO_INCREMENT,
-IdProprietaire INTEGER(11),
-IdLocataire INTEGER(11),
-Commentaire TEXT,
-constraint pk_noteLocataire primary key(IdNoteLocataire),
-FOREIGN KEY (IdLocataire) REFERENCES locataires(IdLocataire),
-FOREIGN KEY (IdProprietaire) REFERENCES proprietaires(IdProprietaire)
+idNoteLocataire INTEGER(11) NOT NULL AUTO_INCREMENT,
+fk_idProprietaire INTEGER(11),
+fk_idLocataire INTEGER(11),
+commentaire TEXT,
+constraint pk_noteLocataire primary key(idNoteLocataire),
+FOREIGN KEY (fk_idLocataire) REFERENCES locataires(idLocataire),
+FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
 
 create table noteProprietaire
 (
-IdNoteProprietaire INTEGER(11) NOT NULL AUTO_INCREMENT,
-IdProprietaire INTEGER(11),
-IdLocataire INTEGER(11),
-Commentaire TEXT,
-constraint pk_noteProprietaire primary key(IdNoteProprietaire),
-FOREIGN KEY (IdLocataire) REFERENCES locataires(IdLocataire),
-FOREIGN KEY (IdProprietaire) REFERENCES proprietaires(IdProprietaire)
+idNoteProprietaire INTEGER(11) NOT NULL AUTO_INCREMENT,
+fk_idProprietaire INTEGER(11),
+fk_idLocataire INTEGER(11),
+commentaire TEXT,
+constraint pk_noteProprietaire primary key(idNoteProprietaire),
+FOREIGN KEY (fk_idLocataire) REFERENCES locataires(idLocataire),
+FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
 
 
