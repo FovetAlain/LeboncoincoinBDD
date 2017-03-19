@@ -62,6 +62,7 @@ rue VARCHAR(50),
 numero VARCHAR(5),
 ville VARCHAR(50),
 cp INTEGER(5),
+type VARCHAR(15),
 constraint pk_annonces primary key(idAnnonce),
 FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
