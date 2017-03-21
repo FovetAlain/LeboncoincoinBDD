@@ -63,6 +63,11 @@ numero VARCHAR(5),
 ville VARCHAR(50),
 cp INTEGER(5),
 type VARCHAR(15),
+surface DOUBLE,
+nombrePieces INTEGER(3),
+jardin DOUBLE,
+garage DOUBLE,
+cave DOUBLE,
 constraint pk_annonces primary key(idAnnonce),
 FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
