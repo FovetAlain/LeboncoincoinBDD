@@ -103,5 +103,14 @@ FOREIGN KEY (fk_idLocataire) REFERENCES locataires(idLocataire),
 FOREIGN KEY (fk_idProprietaire) REFERENCES proprietaires(idProprietaire)
 );
 
+create table photos
+(
+idPhoto INTEGER(11) NOT NULL AUTO_INCREMENT,
+lienPhoto TEXT NOT NULL,
+fk_idAnnonce INTEGER(11) NOT NULL,
+constraint pk_photos primary key(idPhoto),
+FOREIGN KEY (fk_idAnnonce) REFERENCES annonces(idAnnonce)
+);
+
 
 

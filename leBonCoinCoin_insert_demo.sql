@@ -36,3 +36,16 @@ insert into annonces values(NULL,1,'TitreAnnonce6', 'lorem ipso6', 450,' 2017-04
 insert into annonces values(NULL,2,'TitreAnnonce7', 'lorem ipso7', 610,' 2017-05-01','image-de-maison-7','rue de la poupée qui tousse','19','Douai',59500, 'appartement',120,5,NULL,30,20);
 insert into annonces values(NULL,5,'TitreAnnonce8', 'lorem ipso8', 705,' 2017-03-30','image-de-maison-8','rue de la poupée qui tousse','20','Douai',59500, 'appartement',70,3,NULL,30,NULL);
 insert into annonces values(NULL,6,'TitreAnnonce9', 'lorem ipso9', 800,' 2017-03-20','image-de-maison-9','rue de la poupée qui tousse','34','Douai',59500, 'appartement',100,4,NULL,30,20);
+
+insert into photos values(NULL,'Image1',1);
+insert into photos values(NULL,'Image2',1);
+insert into photos values(NULL,'Image3',1);
+insert into photos values(NULL,'Image4',2);
+insert into photos values(NULL,'Image5',2);
+insert into photos values(NULL,'Image6',2);
+insert into photos values(NULL,'Image7',3);
+insert into photos values(NULL,'Image8',3);
+insert into photos values(NULL,'Image9',3);
+insert into photos values(NULL,'Image10',4);
+insert into photos values(NULL,'Image11',4);
+insert into photos values(NULL,'Image12',4);
