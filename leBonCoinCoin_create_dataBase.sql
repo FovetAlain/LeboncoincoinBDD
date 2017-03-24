@@ -57,7 +57,6 @@ titreAnonce TEXT,
 texteAnnonce TEXT,
 prix DOUBLE,
 dateDisponibilite DATETIME DEFAULT CURRENT_TIMESTAMP,
-lienImage TEXT,
 rue VARCHAR(50),
 numero VARCHAR(5),
 ville VARCHAR(50),
@@ -108,6 +107,7 @@ create table photos
 idPhoto INTEGER(11) NOT NULL AUTO_INCREMENT,
 lienPhoto TEXT NOT NULL,
 fk_idAnnonce INTEGER(11) NOT NULL,
+principale BOOLEAN,
 constraint pk_photos primary key(idPhoto),
 FOREIGN KEY (fk_idAnnonce) REFERENCES annonces(idAnnonce)
 );
