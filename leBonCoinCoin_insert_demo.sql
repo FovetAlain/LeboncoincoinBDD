@@ -27,15 +27,15 @@ insert into proprietaires values(NULL, "proprio5",5);
 insert into proprietaires values(NULL, "proprio6",6);
 insert into proprietaires values(NULL, "proprio7",7);
 
-insert into annonces values(NULL,1,'TitreAnnonce1','lorem ipsom', 560, '2017-03-17','rue de la poupée qui tousse','13','Lille',59000, 'maison',120,5,500,30,20);
-insert into annonces values(NULL,2,'TitreAnnonce2','lorem ipso2', 600, '2017-03-18','rue de la poupée qui tousse','14','Douai',59500, 'appartement',100,5,NULL,15,NULL);
-insert into annonces values(NULL,1,'TitreAnnonce3','lorem ipso3', 700, '2017-03-19','rue de la poupée qui tousse','15','Lillers',62190, 'maison',120,5,500,NULL,20);
-insert into annonces values(NULL,4,'TitreAnnonce4','lorem ipso4', 500,' 2017-03-19','rue de la poupée qui tousse','16','Douai',59500, 'maison',120,5,NULL,30,20);
-insert into annonces values(NULL,3,'TitreAnnonce5','lorem ipso5', 400,' 2017-03-20','rue de la poupée qui tousse','17','Douai',59500, 'appartement',60,3,NULL,30,20);
-insert into annonces values(NULL,1,'TitreAnnonce6','lorem ipso6', 450,' 2017-04-10','rue de la poupée qui tousse','18','Douai',59500, 'maison',150,5,500,30,NULL);
-insert into annonces values(NULL,2,'TitreAnnonce7','lorem ipso7', 610,' 2017-05-01','rue de la poupée qui tousse','19','Douai',59500, 'appartement',120,5,NULL,30,20);
-insert into annonces values(NULL,5,'TitreAnnonce8','lorem ipso8', 705,' 2017-03-30','rue de la poupée qui tousse','20','Douai',59500, 'appartement',70,3,NULL,30,NULL);
-insert into annonces values(NULL,6,'TitreAnnonce9','lorem ipso9', 800,' 2017-03-20','rue de la poupée qui tousse','34','Douai',59500, 'appartement',100,4,NULL,30,20);
+insert into annonces values(NULL,1,'TitreAnnonce1','lorem ipsom', 560, '2017-03-17','rue de la poupée qui tousse','13','Lille',59000, 48.866667, 2.333333, 'maison',120,5,500,30,20);
+insert into annonces values(NULL,2,'TitreAnnonce2','lorem ipso2', 600, '2017-03-18','rue de la poupée qui tousse','14','Douai',59500, 48.866667, 2.5, 'appartement',100,5,NULL,15,NULL);
+insert into annonces values(NULL,1,'TitreAnnonce3','lorem ipso3', 700, '2017-03-19','rue de la poupée qui tousse','15','Lillers',62190, 48.866667, 2.6, 'maison',120,5,500,NULL,20);
+insert into annonces values(NULL,4,'TitreAnnonce4','lorem ipso4', 500,' 2017-03-19','rue de la poupée qui tousse','16','Douai',59500, 48.866667, 2.7, 'maison',120,5,NULL,30,20);
+insert into annonces values(NULL,3,'TitreAnnonce5','lorem ipso5', 400,' 2017-03-20','rue de la poupée qui tousse','17','Douai',59500, 48.866667, 2.2, 'appartement',60,3,NULL,30,20);
+insert into annonces values(NULL,1,'TitreAnnonce6','lorem ipso6', 450,' 2017-04-10','rue de la poupée qui tousse','18','Douai',59500, 50, 2.333333, 'maison',150,5,500,30,NULL);
+insert into annonces values(NULL,2,'TitreAnnonce7','lorem ipso7', 610,' 2017-05-01','rue de la poupée qui tousse','19','Douai',59500, 51, 2.333333, 'appartement',120,5,NULL,30,20);
+insert into annonces values(NULL,5,'TitreAnnonce8','lorem ipso8', 705,' 2017-03-30','rue de la poupée qui tousse','20','Douai',59500, 46, 2.333333, 'appartement',70,3,NULL,30,NULL);
+insert into annonces values(NULL,6,'TitreAnnonce9','lorem ipso9', 800,' 2017-03-20','rue de la poupée qui tousse','34','Douai',59500, 55, 2.333333, 'appartement',100,4,NULL,30,20);
 
 insert into photos values(NULL,'Image1',1, 0);
 insert into photos values(NULL,'Image2',1, 0);
